@@ -97,14 +97,14 @@ function MacroSummaryCard({ mealsForDate }) {
   ];
 
   return (
-    <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 space-y-4">
+    <div className="bg-white border border-emerald-100 rounded-xl p-5 space-y-4 shadow-sm">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-white uppercase tracking-wider">Macro Breakdown</h3>
-        <span className="text-2xl font-bold text-white">{totals.calories} <span className="text-sm text-gray-400 font-normal">kcal</span></span>
+        <h3 className="text-sm font-semibold text-emerald-800 uppercase tracking-wider">Macro Breakdown</h3>
+        <span className="text-2xl font-bold text-emerald-800">{totals.calories} <span className="text-sm text-emerald-400 font-normal">kcal</span></span>
       </div>
 
       {/* donut-style bar stack */}
-      <div className="h-3 bg-gray-700 rounded-full overflow-hidden flex">
+      <div className="h-3 bg-emerald-100 rounded-full overflow-hidden flex">
         {(macros || []).map(m => (
           <div
             key={m.label}
@@ -122,10 +122,10 @@ function MacroSummaryCard({ mealsForDate }) {
           return (
             <div key={m.label}>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-gray-400 font-medium">{m.label}</span>
-                <span className="text-gray-300">{m.value}g &middot; <span className="text-gray-500">{m.pct}%</span></span>
+                <span className="text-emerald-500 font-medium">{m.label}</span>
+                <span className="text-emerald-600">{m.value}g &middot; <span className="text-emerald-400">{m.pct}%</span></span>
               </div>
-              <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+              <div className="h-2 bg-emerald-100 rounded-full overflow-hidden">
                 <div className={`h-full rounded-full ${m.color}`} style={{ width: `${pctNum}%` }} />
               </div>
             </div>

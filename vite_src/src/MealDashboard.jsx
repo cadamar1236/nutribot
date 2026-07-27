@@ -169,12 +169,12 @@ export default function MealDashboard() {
 
       {/* meal log */}
       <div className="space-y-3">
-        <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+        <h2 className="text-sm font-semibold text-emerald-600 uppercase tracking-wider">
           Meal Log &middot; {selectedDate}
         </h2>
         {(mealsForDate || []).length === 0 ? (
-          <div className="bg-gray-800/30 border border-gray-700 rounded-xl p-8 text-center">
-            <p className="text-gray-500 text-sm">No meals logged for this date.</p>
+          <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-8 text-center">
+            <p className="text-emerald-400 text-sm">No meals logged for this date.</p>
           </div>
         ) : (
           (mealsForDate || []).map(meal => <MealRow key={meal.id} meal={meal} />)

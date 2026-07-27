@@ -2,6 +2,163 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import MealDashboard from './MealDashboard.jsx';
 import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image, Flame, CreditCard, CheckCircle, Percent, Gift, Heart } from 'lucide-react';
 
+const LandingPage = ({ onSignIn, onSignUp, children }) => (
+  <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+    <header className="bg-white/80 backdrop-blur-lg border-b border-emerald-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center space-x-3">
+            <div className="bg-gradient-to-r from-emerald-400 to-teal-400 p-2 rounded-xl">
+              <Apple className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-emerald-800">NutriBot</h1>
+              <p className="text-xs text-emerald-500">AI-Powered Nutrition</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <button onClick={onSignIn} className="text-emerald-700 px-4 py-2 rounded-xl text-sm font-medium hover:bg-emerald-100 transition-all">Sign In</button>
+            <button onClick={onSignUp} className="bg-gradient-to-r from-emerald-400 to-teal-400 text-white px-5 py-2 rounded-xl text-sm font-medium hover:from-emerald-500 hover:to-teal-500 transition-all shadow-lg shadow-emerald-200">Get Started Free</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section className="py-20 px-4">
+      <div className="max-w-7xl mx-auto text-center">
+        <div className="inline-flex items-center space-x-1 bg-emerald-100 rounded-full px-4 py-1.5 mb-8">
+          <Sparkles className="w-4 h-4 text-emerald-500" />
+          <span className="text-sm text-emerald-600 font-medium">AI-Powered Nutrition Coaching</span>
+        </div>
+        <h2 className="text-5xl sm:text-6xl font-bold text-emerald-900 mb-6 leading-tight">
+          Eat Smart,{'\n'}Live Better{'\n'}
+          <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">With AI</span>
+        </h2>
+        <p className="text-lg text-emerald-600 max-w-2xl mx-auto mb-10">
+          Snap a photo of your meal — our AI instantly logs calories, protein, carbs, and fat.
+          Get personalized weekly meal plans, track your macros, and sync with Apple Health & Fitbit.
+        </p>
+        <div className="flex justify-center space-x-4">
+          <button onClick={onSignUp} className="bg-gradient-to-r from-emerald-400 to-teal-400 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-emerald-500 hover:to-teal-500 transition-all shadow-xl shadow-emerald-200">
+            Start Your Free Trial <ArrowRight className="w-5 h-5 inline ml-2" />
+          </button>
+          <button className="border border-emerald-200 text-emerald-700 px-8 py-4 rounded-xl text-lg font-medium hover:bg-emerald-50 transition-all">See How It Works</button>
+        </div>
+      </div>
+    </section>
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-3xl font-bold text-center text-emerald-900 mb-12">Why NutriBot?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { icon: Camera, title: 'AI Meal Scanner', desc: 'Snap a photo — our AI identifies ingredients and calculates macros instantly.' },
+            { icon: TrendingUp, title: 'Smart Tracking', desc: 'Auto-track calories, protein, carbs & fat. No manual logging needed.' },
+            { icon: Watch, title: 'Wearable Sync', desc: 'Syncs with Apple Health and Fitbit for a complete health picture.' },
+            { icon: Utensils, title: 'Weekly Meal Plans', desc: 'AI generates personalized meal plans based on your goals & preferences.' },
+            { icon: BarChart3, title: 'Advanced Analytics', desc: 'Deep insights into your nutrition patterns with beautiful visualizations.' },
+            { icon: Users, title: 'Family Plans', desc: 'Share nutrition tracking with up to 5 family members. Only $19/mo.' },
+          ].map((feat, i) => (
+            <div key={i} className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-xl flex items-center justify-center mb-4">
+                <feat.icon className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-emerald-800 mb-2">{feat.title}</h4>
+              <p className="text-sm text-emerald-600">{feat.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section className="py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-3xl font-bold text-center text-emerald-900 mb-4">Simple Pricing</h3>
+        <p className="text-emerald-500 text-center mb-12 max-w-xl mx-auto">Start free, upgrade when you need more. No hidden fees.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl p-6 border border-emerald-200">
+            <h4 className="text-lg font-bold text-emerald-800 mb-2">Starter</h4>
+            <p className="text-3xl font-bold text-emerald-800 mb-4">$0<span className="text-sm font-normal text-emerald-500">/mo</span></p>
+            <ul className="space-y-2 mb-6 text-sm text-emerald-600">
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Manual meal logging</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Basic calorie tracking</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>3-day meal history</span></li>
+            </ul>
+            <button onClick={onSignUp} className="w-full bg-emerald-100 text-emerald-700 py-2.5 rounded-xl text-sm font-medium hover:bg-emerald-200 transition-all">Get Started</button>
+          </div>
+          <div className="bg-white rounded-2xl p-6 border-2 border-emerald-400 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-400 to-teal-400 text-white text-xs font-bold px-4 py-1 rounded-full">POPULAR</div>
+            <h4 className="text-lg font-bold text-emerald-800 mb-2">Pro</h4>
+            <p className="text-3xl font-bold text-emerald-800 mb-4">$12<span className="text-sm font-normal text-emerald-500">/mo</span></p>
+            <ul className="space-y-2 mb-6 text-sm text-emerald-600">
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>AI photo recognition</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Full macro & micro tracking</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>AI weekly meal plans</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Apple Health & Fitbit sync</span></li>
+            </ul>
+            <button onClick={onSignUp} className="w-full bg-gradient-to-r from-emerald-400 to-teal-400 text-white py-2.5 rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-teal-500 transition-all shadow-lg shadow-emerald-200">Start Free Trial</button>
+          </div>
+          <div className="bg-white rounded-2xl p-6 border border-emerald-200">
+            <h4 className="text-lg font-bold text-emerald-800 mb-2">Family</h4>
+            <p className="text-3xl font-bold text-emerald-800 mb-4">$19<span className="text-sm font-normal text-emerald-500">/mo</span></p>
+            <ul className="space-y-2 mb-6 text-sm text-emerald-600">
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Everything in Pro</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Up to 5 family members</span></li>
+              <li className="flex items-center space-x-2"><Check className="w-4 h-4 text-emerald-500" /><span>Shared meal plans</span></li>
+            </ul>
+            <button onClick={onSignUp} className="w-full bg-gradient-to-r from-amber-400 to-orange-400 text-white py-2.5 rounded-xl text-sm font-medium hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-200">Start Family Trial</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer className="bg-white border-t border-emerald-100 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-emerald-400">
+        <p>&copy; 2025 NutriBot. All rights reserved.</p>
+      </div>
+    </footer>
+    {children}
+  </div>
+);
+
+const AuthGate = ({ show, mode, onClose, onSubmit, onToggle }) => !show ? null : (
+  <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div className="bg-white rounded-3xl max-w-md w-full p-8 relative">
+      <button onClick={onClose} className="absolute top-4 right-4 p-2 hover:bg-emerald-100 rounded-xl text-emerald-500"><X className="w-5 h-5" /></button>
+      <div className="text-center mb-6">
+        <div className="bg-gradient-to-r from-emerald-400 to-teal-400 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <Apple className="w-8 h-8 text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-emerald-800">{mode === 'login' ? 'Welcome Back' : 'Join NutriBot'}</h2>
+        <p className="text-sm text-emerald-500 mt-1">{mode === 'login' ? 'Sign in to your account' : 'Create your account and start tracking'}</p>
+      </div>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        onSubmit({ email: fd.get('email'), password: fd.get('password'), ...(mode === 'signup' ? { name: fd.get('name') } : {}) });
+      }}>
+        {mode === 'signup' && (
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-emerald-700 mb-1">Name</label>
+            <input name="name" required className="w-full px-4 py-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-700 placeholder-emerald-400" placeholder="Your name" />
+          </div>
+        )}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-emerald-700 mb-1">Email</label>
+          <input name="email" type="email" required className="w-full px-4 py-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-700 placeholder-emerald-400" placeholder="you@example.com" />
+        </div>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-emerald-700 mb-1">Password</label>
+          <input name="password" type="password" required className="w-full px-4 py-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-700 placeholder-emerald-400" placeholder="••••••••" />
+        </div>
+        <button type="submit" className="w-full bg-gradient-to-r from-emerald-400 to-teal-400 text-white py-3 rounded-xl font-semibold hover:from-emerald-500 hover:to-teal-500 transition-all shadow-lg shadow-emerald-200 mb-4">
+          {mode === 'login' ? 'Sign In' : 'Create Account'}
+        </button>
+      </form>
+      <p className="text-center text-sm text-emerald-500">
+        {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
+        <button onClick={onToggle} className="text-emerald-600 font-medium hover:underline">{mode === 'login' ? 'Sign up' : 'Sign in'}</button>
+      </p>
+    </div>
+  </div>
+);
+
 const App = () => {
   const [auth, setAuth] = useState(() => {
     try { const d = JSON.parse(localStorage.getItem('nc_auth') || 'null'); return d; }

@@ -175,7 +175,7 @@ const App = () => {
               </button>
 
               <button
-                onClick={() => setShowPremium(true)}
+                onClick={() => { setShowPremium(true); setShowPricing(false); }}
                 className="hidden sm:flex items-center space-x-1 bg-gradient-to-r from-amber-400 to-orange-400 text-white px-4 py-2 rounded-xl text-sm font-medium hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-200"
               >
                 <Crown className="w-4 h-4" />

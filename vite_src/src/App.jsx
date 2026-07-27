@@ -288,6 +288,201 @@ const App = () => {
             </div>
           </div>
         )}
+
+        {/* Pricing Modal */}
+        {showPricing && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-white rounded-3xl max-w-4xl w-full p-8 relative">
+              <button
+                onClick={() => setShowPricing(false)}
+                className="absolute top-4 right-4 p-2 hover:bg-emerald-100 rounded-xl text-emerald-500 z-10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="text-center mb-10">
+                <div className="bg-gradient-to-r from-emerald-400 to-teal-400 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold text-emerald-800">Simple, Transparent Pricing</h2>
+                <p className="text-emerald-500 mt-2 max-w-xl mx-auto">Choose the plan that fits your lifestyle. All plans include a 14-day free trial.</p>
+              </div>
+
+              {/* Billing Toggle */}
+              <div className="flex justify-center mb-10">
+                <div className="bg-emerald-100 rounded-xl p-1 inline-flex">
+                  <button className="px-6 py-2 rounded-lg text-sm font-medium bg-white text-emerald-700 shadow-sm">Monthly</button>
+                  <button className="px-6 py-2 rounded-lg text-sm font-medium text-emerald-500 hover:text-emerald-700">Yearly <span className="text-xs text-amber-500 font-semibold">Save 20%</span></button>
+                </div>
+              </div>
+
+              {/* Pricing Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {/* Free Plan */}
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200 hover:shadow-lg transition-all relative">
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-emerald-200 rounded-xl flex items-center justify-center mb-4">
+                      <Heart className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-emerald-800">Starter</h3>
+                    <p className="text-sm text-emerald-500 mt-1">For getting started</p>
+                  </div>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-emerald-800">$0</span>
+                    <span className="text-emerald-500 text-sm ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      'Manual meal logging',
+                      'Basic calorie tracking',
+                      '3-day meal history',
+                      'Web dashboard access',
+                    ].map((feat, i) => (
+                      <li key={i} className="flex items-start space-x-2 text-sm text-emerald-600">
+                        <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full bg-emerald-200 text-emerald-700 py-3 rounded-xl font-medium hover:bg-emerald-300 transition-all">
+                    Current Plan
+                  </button>
+                </div>
+
+                {/* Pro Plan - highlighted */}
+                <div className="bg-white rounded-2xl p-6 border-2 border-emerald-400 hover:shadow-xl transition-all relative">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-400 to-teal-400 text-white text-xs font-bold px-4 py-1 rounded-full">
+                    MOST POPULAR
+                  </div>
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-xl flex items-center justify-center mb-4">
+                      <Crown className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-emerald-800">Pro</h3>
+                    <p className="text-sm text-emerald-500 mt-1">For health enthusiasts</p>
+                  </div>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-emerald-800">$12</span>
+                    <span className="text-emerald-500 text-sm ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      'AI-powered meal scanning',
+                      'Full macro & micro tracking',
+                      'Weekly AI meal plans',
+                      'Apple Health & Fitbit sync',
+                      'Unlimited meal history',
+                      'Priority support',
+                    ].map((feat, i) => (
+                      <li key={i} className="flex items-start space-x-2 text-sm text-emerald-600">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full bg-gradient-to-r from-emerald-400 to-teal-400 text-white py-3 rounded-xl font-semibold hover:from-emerald-500 hover:to-teal-500 transition-all shadow-lg shadow-emerald-200">
+                    Start Free Trial
+                  </button>
+                </div>
+
+                {/* Family Plan */}
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200 hover:shadow-lg transition-all relative">
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-amber-200 rounded-xl flex items-center justify-center mb-4">
+                      <Users className="w-6 h-6 text-amber-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-emerald-800">Family</h3>
+                    <p className="text-sm text-emerald-500 mt-1">For the whole household</p>
+                  </div>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-emerald-800">$19</span>
+                    <span className="text-emerald-500 text-sm ml-1">/mo</span>
+                    <div className="mt-1">
+                      <span className="text-xs bg-amber-100 text-amber-600 px-2 py-0.5 rounded-full font-medium">Save 33%</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      'Everything in Pro',
+                      'Up to 5 family members',
+                      'Shared meal plans',
+                      'Family dashboard & insights',
+                      'Parental controls',
+                      'Dedicated family support',
+                    ].map((feat, i) => (
+                      <li key={i} className="flex items-start space-x-2 text-sm text-emerald-600">
+                        <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full bg-gradient-to-r from-amber-400 to-orange-400 text-white py-3 rounded-xl font-medium hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-200">
+                    Start Family Trial
+                  </button>
+                </div>
+              </div>
+
+              {/* Comparison Table */}
+              <div className="bg-emerald-50 rounded-2xl p-6 mb-6">
+                <h3 className="text-lg font-bold text-emerald-800 mb-4 text-center">Feature Comparison</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-emerald-200">
+                        <th className="text-left py-3 text-emerald-600 font-medium">Feature</th>
+                        <th className="text-center py-3 text-emerald-600 font-medium">Starter</th>
+                        <th className="text-center py-3 text-emerald-700 font-semibold bg-emerald-100 rounded-t-lg">Pro</th>
+                        <th className="text-center py-3 text-emerald-600 font-medium">Family</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ['Manual meal logging', '✓', '✓', '✓'],
+                        ['AI Photo Recognition', '—', '✓', '✓'],
+                        ['Macro Tracking', 'Basic', 'Advanced', 'Advanced'],
+                        ['Micro Nutrients', '—', '✓', '✓'],
+                        ['Weekly Meal Plans', '—', '✓', '✓'],
+                        ['Apple Health Sync', '—', '✓', '✓'],
+                        ['Fitbit Sync', '—', '✓', '✓'],
+                        ['Family Members', '1', '1', 'Up to 5'],
+                        ['Meal History', '3 days', 'Unlimited', 'Unlimited'],
+                        ['Priority Support', '—', '✓', '✓'],
+                        ['Price', 'Free', '$12/mo', '$19/mo'],
+                      ].map((row, i) => (
+                        <tr key={i} className="border-b border-emerald-100">
+                          <td className="py-2.5 text-emerald-700">{row[0]}</td>
+                          <td className="text-center py-2.5 text-emerald-500">{row[1]}</td>
+                          <td className="text-center py-2.5 text-emerald-600 font-medium bg-emerald-100/50">{row[2]}</td>
+                          <td className="text-center py-2.5 text-emerald-500">{row[3]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center gap-6 text-center text-xs text-emerald-400">
+                <div className="flex items-center space-x-1">
+                  <Shield className="w-3 h-3" />
+                  <span>14-day free trial</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <CreditCard className="w-3 h-3" />
+                  <span>Secure payment</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Percent className="w-3 h-3" />
+                  <span>Cancel anytime</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Gift className="w-3 h-3" />
+                  <span>No hidden fees</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import MealDashboard from './MealDashboard.jsx';
-import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image } from 'lucide-react';
+import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image, Flame, CreditCard, CheckCircle, Percent, Gift, Heart } from 'lucide-react';
 
 const App = () => {
   const [meals, setMeals] = useState([]);

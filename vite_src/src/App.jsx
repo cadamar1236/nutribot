@@ -465,7 +465,7 @@ const App = () => {
               <button className="w-full text-left px-4 py-2 hover:bg-emerald-50 rounded-xl text-sm text-emerald-700">
                 Settings
               </button>
-              <button className="w-full text-left px-4 py-2 hover:bg-red-50 rounded-xl text-sm text-red-600">
+              <button onClick={handleLogout} className="w-full text-left px-4 py-2 hover:bg-red-50 rounded-xl text-sm text-red-600">
                 Sign Out
               </button>
             </div>

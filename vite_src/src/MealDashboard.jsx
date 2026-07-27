@@ -91,9 +91,9 @@ function MacroSummaryCard({ mealsForDate }) {
   }, [mealsForDate]);
 
   const macros = [
-    { label: 'Carbs', value: totals.carbs, pct: totals.carbsPct, color: 'bg-blue-500', barColor: 'bg-blue-500/20' },
-    { label: 'Protein', value: totals.protein, pct: totals.proteinPct, color: 'bg-red-500', barColor: 'bg-red-500/20' },
-    { label: 'Fat', value: totals.fat, pct: totals.fatPct, color: 'bg-yellow-500', barColor: 'bg-yellow-500/20' },
+    { label: 'Carbs', value: totals.carbs, pct: totals.carbsPct, color: 'bg-blue-500', barColor: 'bg-blue-100' },
+    { label: 'Protein', value: totals.protein, pct: totals.proteinPct, color: 'bg-red-500', barColor: 'bg-red-100' },
+    { label: 'Fat', value: totals.fat, pct: totals.fatPct, color: 'bg-yellow-500', barColor: 'bg-yellow-100' },
   ];
 
   return (

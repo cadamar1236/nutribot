@@ -26,7 +26,7 @@ function getTodayStr() {
 /* ─── color badge for each macro ─── */
 function MacroBadge({ label, value, unit, color }) {
   return (
-    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${color}`}>
+    <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${color}`}>
       {label} {value}{unit}
     </span>
   );

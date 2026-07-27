@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import MealDashboard from './MealDashboard.jsx';
-import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image, Flame, CreditCard, CheckCircle, Percent, Gift, Heart } from 'lucide-react';
+import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image, Flame, CreditCard, CheckCircle, Percent, Gift, Heart, Dumbbell, Wheat, Beaker } from 'lucide-react';
 
 const LandingPage = ({ onSignIn, onSignUp, children }) => (
   <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
@@ -242,7 +242,7 @@ const App = () => {
     try {
       const response = await fetch(`/api/meals/${mealId}`, { method: 'DELETE' });
       if (!response.ok) throw new Error('Failed to delete meal');
-      setMeals(prev => prev.filter(m => m.id !== mealId));
+      setMeals(prev => (prev || []).filter(m => m.id !== mealId));
     } catch (err) {
       console.error('Failed to delete meal:', err);
     }
@@ -498,8 +498,8 @@ const App = () => {
 
         {/* Pricing Modal */}
         {showPricing && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-white rounded-3xl max-w-4xl w-full p-8 relative">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-start justify-center p-4 overflow-y-auto pt-16">
+            <div className="bg-white rounded-3xl max-w-4xl w-full p-8 relative mt-8 mb-8">
               <button
                 onClick={() => setShowPricing(false)}
                 className="absolute top-4 right-4 p-2 hover:bg-emerald-100 rounded-xl text-emerald-500 z-10"

@@ -74,7 +74,7 @@ const App = () => {
       });
       if (!response.ok) throw new Error('Failed to add meal');
       const newMeal = await response.json();
-      setMeals(prev => [...prev, newMeal]);
+      setMeals(prev => [...(prev ?? []), newMeal]);
       setShowAddMeal(false);
     } catch (err) {
       console.error('Failed to add meal:', err);

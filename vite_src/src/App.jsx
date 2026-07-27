@@ -3,6 +3,12 @@ import MealDashboard from './MealDashboard.jsx';
 import { Camera, Utensils, TrendingUp, Apple, Watch, BarChart3, ChevronDown, ChevronUp, Plus, Search, Bell, LogOut, Crown, Sparkles, ArrowRight, Check, Star, Zap, Shield, Leaf, Users, Clock, Target, Activity, X, Mail, Smartphone, DollarSign, Image, Flame, CreditCard, CheckCircle, Percent, Gift, Heart } from 'lucide-react';
 
 const App = () => {
+  const [auth, setAuth] = useState(() => {
+    try { const d = JSON.parse(localStorage.getItem('nc_auth') || 'null'); return d; }
+    catch { return null; }
+  });
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authMode, setAuthMode] = useState('login');
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

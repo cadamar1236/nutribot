@@ -100,7 +100,7 @@ const App = () => {
       });
       if (!response.ok) throw new Error('Failed to scan meal');
       const data = await response.json();
-      setMeals(prev => [...prev, data]);
+      setMeals(prev => [...(prev ?? []), data]);
       setShowScanner(false);
     } catch (err) {
       console.error('Failed to scan meal:', err);

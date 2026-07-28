@@ -77,7 +77,11 @@
         } else { addBadge(); }
       })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pinned to a known-good v3 build: the unversioned URL redirects to
+         whatever Tailwind currently ships as "latest" behind that path, which
+         has silently changed before and breaks class generation with no
+         visible error — the page just ships completely unstyled. -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
         theme: {

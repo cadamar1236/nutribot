@@ -77,7 +77,11 @@
         } else { addBadge(); }
       })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pinned to a known-good v3 build: the unversioned URL redirects to
+         whatever Tailwind currently ships as "latest" behind that path, which
+         has silently changed before and breaks class generation with no
+         visible error — the page just ships completely unstyled. -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -134,8 +138,8 @@
       color: #67e8f9 !important;
     }
   </style>
-    <script type="module" crossorigin src="./assets/index-DENH8Ahl.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-EsN36LmA.css">
+    <script type="module" crossorigin src="./assets/index-qJeOIp8H.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-b8Ht5Bn0.css">
   </head>
   <body>
     <div id="root"></div>
